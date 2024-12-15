@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteWave Web Development & SaaS Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            overflow: hidden; /* Prevents scrollbars due to animation */
+        }
+
+        /* Animated Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1; /* Ensures background stays behind content */
+            background-color: #000;
+            overflow: hidden; /* Prevents scrollbars */
+        }
+
+        /* Tech-inspired lines animation */
+        .lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.05),
+                rgba(255, 255, 255, 0.05) 1px,
+                transparent 1px,
+                transparent 50px
+            );
+            animation: move 5s linear infinite;
+        }
+
+        @keyframes move {
+            from {
+                background-position: 0 0;
+            }
+            to {
+                background-position: 100% 100%;
+            }
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: relative; /* Positioning relative to overlay the background */
+            z-index: 1; /* Brings nav above background */
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle at center, #88ff00, #004400);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .logo:before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            border-radius: 50%;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            list-style: none;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 400;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent for better contrast */
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Service Section */
+        section {
+            padding: 4rem 2rem;
+            position: relative; /* Ensure sections are above background */
+            z-index: 1;
+        }
+
+        .service-background {
+            position: relative; /* Needed for the absolute positioning of the animated background */
+            padding: 2rem;
+            border-radius: 10px; /* Rounded corners for sections */
+            overflow: hidden; /* Ensure background is contained */
+            margin-bottom: 2rem; /* Space between sections */
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0; /* Background stays behind content */
+            border-radius: 10px; /* Ensure corners match the service background */
+        }
+
+        .plan {
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for layering */
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            position: relative;
+            z-index: 1; /* Bring the plan above the animated background */
+        }
+
+        .plan:hover {
+            transform: translateY(-5px);
+        }
+
+        .plan h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #88ff00;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .plan p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .plan .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: #88ff00;
+            color: #000;
+            font-weight: 600;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 2rem;
+            color: #fff;
+            font-size: 0.875rem;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="background">
+    <div class="lines"></div> <!-- Animated lines background -->
+</div>
+
+<header>
+    <nav>
+        <div class="logo-container">
+            <div class="logo"></div>
+            <div class="brand-name">ByteWave</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#web-development">Web Development</a></li>
+            <li><a href="#saas-plans">SaaS Plans</a></li>
+            <li><a href="#automation">Automation</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<div class="hero-section">
+    <h1>ByteWave Services</h1>
+    <p>Delivering modern web solutions and powerful SaaS subscriptions for your business needs.</p>
+</div>
+
+<!-- Web Development Services Section -->
+<section id="web-development">
+    <h2>Web Development Services</h2>
+    <div class="service-background">
+        <div class="animated-bg">
+            <div class="lines"></div> <!-- Animated lines background for the service section -->
+        </div>
+        <div class="plan">
+            <h3>Single-Page Applications (SPAs)</h3>
+            <p><strong>Basic Plan:</strong> $1,500 - $2,500</p>
+            <p>One-page dynamic website with basic features (HTML, HTMX, CSS).</p>
+            <p><strong>Standard Plan:</strong> $3,000 - $5,000</p>
+            <p>Multi-page SPA with forms and dynamic content. Backend integration using Go.</p>
+            <p><strong>Advanced Plan:</strong> $6,000+</p>
+            <p>Full SPA with complex features (authentication, payments). API and third-party integrations.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+
+        <div class="plan">
+            <h3>Custom Website Development</h3>
+            <p><strong>Basic Plan:</strong> $800 - $1,500</p>
+            <p>Static website (up to 5 pages), mobile-friendly.</p>
+            <p><strong>Standard Plan:</strong> $2,000 - $4,000</p>
+            <p>Dynamic website with booking systems or customer portals.</p>
+            <p><strong>Advanced Plan:</strong> $5,000+</p>
+            <p>Feature-rich website with extensive automation.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </div>
+</section>
+
+<!-- SaaS Subscription Plans Section -->
+<section id="saas-plans">
+    <h2>Microservices SaaS Subscription Plans</h2>
+    <div class="service-background">
+        <div class="animated-bg">
+            <div class="lines"></div> <!-- Animated lines background for the service section -->
+        </div>
+        <div class="plan">
+            <h3>Basic Plan</h3>
+            <p><strong>Price:</strong> $99/month</p
